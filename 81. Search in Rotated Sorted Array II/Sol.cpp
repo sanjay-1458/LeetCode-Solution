@@ -7,7 +7,11 @@ public:
             if(A[mid]==key){
                 return true;
             }
-            else if(A[mid]<=A[high]){
+            if(A[low]==A[mid] && A[mid] == A[high]){
+                low++;high++;
+                continue;
+            }
+            if(A[mid]<=A[high]){
                 if(key>A[mid] && key<=A[high]){
                     low=mid+1;
                 }
@@ -21,15 +25,6 @@ public:
                 }
                 else{
                     low=mid+1;
-                }
-            }
-        }
-        low=0,high=A.size()-1;
-        int mid=low+(high-low)/2;
-        if(A[low]==A[mid] && A[low]==A[high]){
-            for(int i=0;i<A.size();++i){
-                if(A[i]==key){
-                    return true;
                 }
             }
         }
