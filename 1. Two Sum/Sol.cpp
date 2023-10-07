@@ -33,3 +33,25 @@ public:
         return ans;
     }
 };
+
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        map<int,int> mp;
+        vector<int> ans(2,0);
+        for(int i=0;i<nums.size();++i){
+            int el=nums[i];
+            int rem=target-nums[i];
+            if(mp.find(rem)==mp.end()){
+                mp[el]=i;
+            }
+            else{
+                ans[0]=i;
+                ans[1]=mp[rem];
+                break;
+            }
+        }
+        return ans;
+    }
+};
