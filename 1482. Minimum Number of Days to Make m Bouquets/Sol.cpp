@@ -50,19 +50,17 @@ public:
 
 class Solution {
     int fun(vector<int>&arr,int mid,int k){
-        int cnt=k,ans=0;
+        int cnt=0,ans=0;
         for(int i=0;i<arr.size();++i){
             if(arr[i]<=mid){
-                cnt--;
+                cnt++;
             }
             else{
-                cnt=k;
-            }
-            if(cnt==0){
-                ans++;
-                cnt=k;
+                ans+=cnt/k;
+                cnt=0;
             }
         }
+        ans+=cnt/k;
         return ans;
     }
 public:
